@@ -202,12 +202,12 @@
 
             <div class="input-group">
                 <label>Email Address *</label>
-                <input type="email" placeholder="name@email.com" required>
+                <input type="email" name="email" placeholder="name@email.com" required>
             </div>
 
             <div class="input-group">
                 <label>Gender *</label>
-                <select required>
+                <select name="gender" required>
                     <option value="">Select Gender</option>
                     <option>Male</option>
                     <option>Female</option>
@@ -217,7 +217,7 @@
 
             <div class="input-group">
                 <label>City / Location *</label>
-                <input type="text" placeholder="Your City" required>
+                <input type="text" name="city" placeholder="Your City" required>
             </div>
 
             <!-- SECTION 2 -->
@@ -226,13 +226,13 @@
             
             <label>Medical Conditions (Select all that apply) *</label>
             <div class="checkbox-group">
-                <label class="opt-card"><input type="checkbox"> High Blood Pressure</label>
-                <label class="opt-card"><input type="checkbox"> Diabetes</label>
-                <label class="opt-card"><input type="checkbox"> Back Pain</label>
-                <label class="opt-card"><input type="checkbox"> Thyroid</label>
-                <label class="opt-card"><input type="checkbox"> PCOD / Hormonal</label>
-                <label class="opt-card"><input type="checkbox"> Anxiety / Stress</label>
-                <label class="opt-card"><input type="checkbox"> None</label>
+                <label class="opt-card"><input type="checkbox" name="medical_conditions[]"> High Blood Pressure</label>
+                <label class="opt-card"><input type="checkbox" name="medical_conditions[]"> Diabetes</label>
+                <label class="opt-card"><input type="checkbox" name="medical_conditions[]"> Back Pain</label>
+                <label class="opt-card"><input type="checkbox" name="medical_conditions[]"> Thyroid</label>
+                <label class="opt-card"><input type="checkbox" name="medical_conditions[]"> PCOD / Hormonal</label>
+                <label class="opt-card"><input type="checkbox" name="medical_conditions[]"> Anxiety / Stress</label>
+                <label class="opt-card"><input type="checkbox" name="medical_conditions[]"> None</label>
             </div>
 
             <div class="input-group" style="margin-top: 20px;">
