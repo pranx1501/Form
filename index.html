@@ -157,12 +157,7 @@
         @keyframes fadeIn {
             to { opacity: 1; transform: translateY(0); }
         }
-
-        .success-msg {
-            display: none;
-            text-align: center;
-            padding: 40px;
-        }
+        /* .success-msg { display: none; } - This CSS is no longer needed as the div is removed */
     </style>
 </head>
 <body>
@@ -178,175 +173,164 @@
                 <p>Please fill this form carefully to enroll. Your responses are confidential.</p>
             </div>
         </div>
-<form id="yogaForm" name="yoga-registration" method="POST" data-netlify="true">
-    
-    <input type="hidden" name="form-name" value="yoga-registration">
-    <input type="hidden" name="redirect" value="https://vishwanathyoga.netlify.app/">
-
-    <!-- SECTION 1 -->
-    <div class="section-title">📋 Section 1: Personal Details</div>
+        <form id="yogaForm" name="yoga-registration" method="POST" action="https://vishwanathyoga.netlify.app/" data-netlify="true">
             
-            <div class="input-group">
-                <label>Full Name *</label>
-                <input type="text" name="full_name" placeholder="John Doe" required>
-            </div>
+            <input type="hidden" name="form-name" value="yoga-registration">
+            <!-- The hidden redirect input is removed as per Option 1 -->
 
-            <div style="display: flex; gap: 15px;">
-                <div class="input-group" style="flex: 2;">
-                    <label>Mobile Number *</label>
-                    <input type="text" name="mobile_number" pattern="\d{10}" title="Please enter 10 digits" placeholder="9876543210" required>
-                </div>
-                <div class="input-group" style="flex: 1;">
-                    <label>Age *</label>
-                    <input type="number" name="age" placeholder="25" required>
-                </div>
-            </div>
+            <!-- SECTION 1 -->
+            <div class="section-title">📋 Section 1: Personal Details</div>
+                    
+                    <div class="input-group">
+                        <label>Full Name *</label>
+                        <input type="text" name="full_name" placeholder="John Doe" required>
+                    </div>
 
-            <div class="input-group">
-                <label>Email Address *</label>
-                <input type="email" name="email" placeholder="name@email.com" required>
-            </div>
+                    <div style="display: flex; gap: 15px;">
+                        <div class="input-group" style="flex: 2;">
+                            <label>Mobile Number *</label>
+                            <input type="text" name="mobile_number" pattern="\d{10}" title="Please enter 10 digits" placeholder="9876543210" required>
+                        </div>
+                        <div class="input-group" style="flex: 1;">
+                            <label>Age *</label>
+                            <input type="number" name="age" placeholder="25" required>
+                        </div>
+                    </div>
 
-            <div class="input-group">
-                <label>Gender *</label>
-                <select name="gender" required>
-                    <option value="">Select Gender</option>
-                    <option>Male</option>
-                    <option>Female</option>
-                    <option>Prefer not to say</option>
-                </select>
-            </div>
+                    <div class="input-group">
+                        <label>Email Address *</label>
+                        <input type="email" name="email" placeholder="name@email.com" required>
+                    </div>
 
-            <div class="input-group">
-                <label>City / Location *</label>
-                <input type="text" name="city" placeholder="Your City" required>
-            </div>
+                    <div class="input-group">
+                        <label>Gender *</label>
+                        <select name="gender" required>
+                            <option value="">Select Gender</option>
+                            <option>Male</option>
+                            <option>Female</option>
+                            <option>Prefer not to say</option>
+                        </select>
+                    </div>
 
-            <!-- SECTION 2 -->
-            <div class="section-title">📋 Section 2: Health Information</div>
-            <p style="font-size: 11px; color: #888; margin-top: -15px;">This helps us design a safe plan for you.</p>
-            
-            <label>Medical Conditions (Select all that apply) *</label>
-            <div class="checkbox-group">
-                <label class="opt-card"><input type="checkbox" name="medical_conditions[]" value="High Blood Pressure"> High Blood Pressure</label>
-                <label class="opt-card"><input type="checkbox" name="medical_conditions[]" value="Diabetes"> Diabetes</label>
-                <label class="opt-card"><input type="checkbox" name="medical_conditions[]" value="Back Pain"> Back Pain</label>
-                <label class="opt-card"><input type="checkbox" name="medical_conditions[]" value="Thyroid"> Thyroid</label>
-                <label class="opt-card"><input type="checkbox" name="medical_conditions[]" value="PCOD / Hormonal"> PCOD / Hormonal</label>
-                <label class="opt-card"><input type="checkbox" name="medical_conditions[]" value="Anxiety / Stress"> Anxiety / Stress</label>
-                <label class="opt-card"><input type="checkbox" name="medical_conditions[]" value="None"> None</label>
-            </div>
+                    <div class="input-group">
+                        <label>City / Location *</label>
+                        <input type="text" name="city" placeholder="Your City" required>
+                    </div>
 
-            <div class="input-group" style="margin-top: 20px;">
-                <label>Recent Surgery (Last 12 months)? *</label>
-                <div class="radio-group">
-                    <label class="opt-card"><input type="radio" name="surgery" value="yes" onclick="toggleSurgery(true)"> Yes</label>
-                    <label class="opt-card"><input type="radio" name="surgery" value="no" onclick="toggleSurgery(false)" checked> No</label>
-                </div>
-            </div>
+                    <!-- SECTION 2 -->
+                    <div class="section-title">📋 Section 2: Health Information</div>
+                    <p style="font-size: 11px; color: #888; margin-top: -15px;">This helps us design a safe plan for you.</p>
+                    
+                    <label>Medical Conditions (Select all that apply) *</label>
+                    <div class="checkbox-group">
+                        <label class="opt-card"><input type="checkbox" name="medical_conditions[]" value="High Blood Pressure"> High Blood Pressure</label>
+                        <label class="opt-card"><input type="checkbox" name="medical_conditions[]" value="Diabetes"> Diabetes</label>
+                        <label class="opt-card"><input type="checkbox" name="medical_conditions[]" value="Back Pain"> Back Pain</label>
+                        <label class="opt-card"><input type="checkbox" name="medical_conditions[]" value="Thyroid"> Thyroid</label>
+                        <label class="opt-card"><input type="checkbox" name="medical_conditions[]" value="PCOD / Hormonal"> PCOD / Hormonal</label>
+                        <label class="opt-card"><input type="checkbox" name="medical_conditions[]" value="Anxiety / Stress"> Anxiety / Stress</label>
+                        <label class="opt-card"><input type="checkbox" name="medical_conditions[]" value="None"> None</label>
+                    </div>
 
-            <div id="surgery-details" class="input-group">
-                <label>What surgery and when?</label>
-                <textarea name="surgery_details" rows="2" placeholder="Please describe..."></textarea>
-            </div>
+                    <div class="input-group" style="margin-top: 20px;">
+                        <label>Recent Surgery (Last 12 months)? *</label>
+                        <div class="radio-group">
+                            <label class="opt-card"><input type="radio" name="surgery" value="yes" onclick="toggleSurgery(true)"> Yes</label>
+                            <label class="opt-card"><input type="radio" name="surgery" value="no" onclick="toggleSurgery(false)" checked> No</label>
+                        </div>
+                    </div>
 
-            <div class="input-group">
-                <label>Are you currently pregnant?</label>
-                <select name="pregnancy_status">
-                    <option>No</option>
-                    <option>Yes</option>
-                    <option>Not Applicable</option>
-                </select>
-            </div>
+                    <div id="surgery-details" class="input-group">
+                        <label>What surgery and when?</label>
+                        <textarea name="surgery_details" rows="2" placeholder="Please describe..."></textarea>
+                    </div>
 
-            <!-- SECTION 3 -->
-            <div class="section-title">📋 Section 3: Class Preferences</div>
-            
-            <label>Interested In *</label>
-            <div class="checkbox-group">
-    <label class="opt-card">
-        <input type="checkbox" name="interests[]" value="Weight Loss">
-        Weight Loss
-    </label>
+                    <div class="input-group">
+                        <label>Are you currently pregnant?</label>
+                        <select name="pregnancy_status">
+                            <option>No</option>
+                            <option>Yes</option>
+                            <option>Not Applicable</option>
+                        </select>
+                    </div>
 
-    <label class="opt-card">
-        <input type="checkbox" name="interests[]" value="Therapeutic">
-        Therapeutic
-    </label>
+                    <!-- SECTION 3 -->
+                    <div class="section-title">📋 Section 3: Class Preferences</div>
+                    
+                    <label>Interested In *</label>
+                    <div class="checkbox-group">
+            <label class="opt-card">
+                <input type="checkbox" name="interests[]" value="Weight Loss">
+                Weight Loss
+            </label>
 
-    <label class="opt-card">
-        <input type="checkbox" name="interests[]" value="Beginners">
-        Beginners
-    </label>
+            <label class="opt-card">
+                <input type="checkbox" name="interests[]" value="Therapeutic">
+                Therapeutic
+            </label>
 
-    <label class="opt-card">
-        <input type="checkbox" name="interests[]" value="Advanced">
-        Advanced
-    </label>
+            <label class="opt-card">
+                <input type="checkbox" name="interests[]" value="Beginners">
+                Beginners
+            </label>
 
-    <label class="opt-card">
-        <input type="checkbox" name="interests[]" value="Meditation">
-        Meditation
-    </label>
+            <label class="opt-card">
+                <input type="checkbox" name="interests[]" value="Advanced">
+                Advanced
+            </label>
 
-    <label class="opt-card">
-        <input type="checkbox" name="interests[]" value="Personal Training">
-        Personal Training
-    </label>
-</div>
+            <label class="opt-card">
+                <input type="checkbox" name="interests[]" value="Meditation">
+                Meditation
+            </label>
 
-            <div class="input-group" style="margin-top:20px;">
-                <label>Preferred Mode *</label>
-                <select name="preferred_mode" required>
-                    <option>Online</option>
-                    <option>Offline (Studio)</option>
-                </select>
-            </div>
+            <label class="opt-card">
+                <input type="checkbox" name="interests[]" value="Personal Training">
+                Personal Training
+            </label>
+        </div>
 
-            <div class="input-group">
-                <label>Preferred Batch Time *</label>
-                <select name="preferred_batch_time" required>
-                    <option>6:15 AM – 7:15 AM</option>
-                    <option>7:15 AM – 8:15 AM</option>
-                    <option>Evening Batch</option>
-                </select>
-            </div>
+                    <div class="input-group" style="margin-top:20px;">
+                        <label>Preferred Mode *</label>
+                        <select name="preferred_mode" required>
+                            <option>Online</option>
+                            <option>Offline (Studio)</option>
+                        </select>
+                    </div>
 
-            <!-- SECTION 4 -->
-            <div class="section-title">📋 Section 4: Payment & Agreement</div>
-            
-            <div class="input-group">
-                <label>Select Your Plan *</label>
-                <select name="plan" required>
-                    <option>1 Month Plan</option>
-                    <option>3 Month Plan</option>
-                    <option>Personal Training Plan</option>
-                    <option>Trial Class</option>
-                </select>
-            </div>
+                    <div class="input-group">
+                        <label>Preferred Batch Time *</label>
+                        <select name="preferred_batch_time" required>
+                            <option>6:15 AM – 7:15 AM</option>
+                            <option>7:15 AM – 8:15 AM</option>
+                            <option>Evening Batch</option>
+                        </select>
+                    </div>
 
-            <div class="input-group">
-                <label style="display: flex; align-items: flex-start; gap: 10px; font-weight: 400;">
-                    <input type="checkbox" name="agreement" required style="margin-top: 5px;">
-                    <span>I confirm that I have provided accurate health information and understand that yoga is a self-responsibility practice.</span>
-                </label>
-            </div>
+                    <!-- SECTION 4 -->
+                    <div class="section-title">📋 Section 4: Payment & Agreement</div>
+                    
+                    <div class="input-group">
+                        <label>Select Your Plan *</label>
+                        <select name="plan" required>
+                            <option>1 Month Plan</option>
+                            <option>3 Month Plan</option>
+                            <option>Personal Training Plan</option>
+                            <option>Trial Class</option>
+                        </select>
+                    </div>
 
-            <button type="submit" class="submit-btn">Complete Registration</button>
-        </form>
+                    <div class="input-group">
+                        <label style="display: flex; align-items: flex-start; gap: 10px; font-weight: 400;">
+                            <input type="checkbox" name="agreement" required style="margin-top: 5px;">
+                            <span>I confirm that I have provided accurate health information and understand that yoga is a self-responsibility practice.</span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Complete Registration</button>
+                </form>
     </div>
-
-    <div id="success-state" class="success-msg">
-    <h2 style="color: var(--primary);">✨ Namaste</h2>
-    <p>Thanks for submitting! We will contact you soon.</p>
-    <p><b>Stay Tuned. Stay Happy.</b></p>
-
-    <a href="https://vishwanathyoga.netlify.app/" 
-       class="submit-btn" 
-       style="display:inline-block; text-decoration:none; text-align:center; margin-top:20px;">
-       Back to Website
-    </a>
-</div>
+    <!-- The success-state div is completely removed as per Option 1 -->
 </div>
 
 <script>
@@ -359,8 +343,6 @@
         const div = document.getElementById('surgery-details');
         div.style.display = show ? 'block' : 'none';
     }
-
-   
 </script>
 
     <script>
