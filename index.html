@@ -354,14 +354,23 @@
         div.style.display = show ? 'block' : 'none';
     }
 
-    document.getElementById('yogaForm').onsubmit = (e) => {
-       
-        gsap.to("#registration-form", { opacity: 0, duration: 0.5, onComplete: () => {
-            document.getElementById('registration-form').style.display = 'none';
-            document.getElementById('success-state').style.display = 'block';
-            gsap.from("#success-state", { opacity: 0, y: 20, duration: 0.5 });
-        }});
-    };
+   
+</script>
+
+    <script>
+    // Disable Right Click
+    document.addEventListener('contextmenu', function (e) {
+        e.preventDefault();
+    });
+
+    // Disable F12, Ctrl+Shift+I, Ctrl+U (basic protection)
+    document.addEventListener('keydown', function (e) {
+        if (e.key === "F12" || 
+           (e.ctrlKey && e.shiftKey && e.key === "I") ||
+           (e.ctrlKey && e.key === "u")) {
+            e.preventDefault();
+        }
+    });
 </script>
 
 </body>
