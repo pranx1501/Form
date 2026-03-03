@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vishwanath Yoga Studio Registration</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <style>
+        :root {
+            --primary: #7D8E78;
+            --dark: #2C3E50;
+            --light: #F9FBF9;
+            --accent: #D4AF37;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .form-container {
+            background: white;
+            max-width: 600px;
+            width: 90%;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            margin: 40px 0;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .description {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #666;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+
+        .section-title {
+            font-weight: 600;
+            color: var(--primary);
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 2px;
+            margin: 30px 0 20px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #eee;
+            margin-left: 15px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        label {
+            display: block;
+            font-size: 13px;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        input[type="text"], input[type="email"], input[type="number"], select, textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1.5px solid #EAEAEA;
+            border-radius: 8px;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(125, 142, 120, 0.1);
+        }
+
+        .checkbox-group, .radio-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .opt-card {
+            padding: 10px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 13px;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+        }
+
+        .opt-card:hover {
+            background: #f4f7f4;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: var(--dark);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 30px;
+            transition: transform 0.2s, background 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        #surgery-details {
+            display: none;
+            margin-top: 15px;
+        }
+
+        /* Animations */
+        .fade-in { animation: fadeIn 0.8s forwards; }
+        @keyframes fadeIn {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .success-msg {
+            display: none;
+            text-align: center;
+            padding: 40px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container" id="form-card">
+    <div id="registration-form">
+        <div class="header">
+            <h1>🕉️ VISHWANATH YOGA STUDIO</h1>
+            <div class="description">
+                Welcome to <b>Vishwanath Yoga Studio</b> 🧘‍♂️<br>
+                <small>Led by Pranav Chakranarayan<br>
+                Certified Yoga Trainer – YCB Level-1 (Ministry of AYUSH, Govt. of India)</small>
+                <p>Please fill this form carefully to enroll. Your responses are confidential.</p>
+            </div>
+        </div>
+
+        <form id="yogaForm">
+            <!-- SECTION 1 -->
+            <div class="section-title">📋 Section 1: Personal Details</div>
+            
+            <div class="input-group">
+                <label>Full Name *</label>
+                <input type="text" placeholder="John Doe" required>
+            </div>
+
+            <div style="display: flex; gap: 15px;">
+                <div class="input-group" style="flex: 2;">
+                    <label>Mobile Number *</label>
+                    <input type="text" pattern="\d{10}" title="Please enter 10 digits" placeholder="9876543210" required>
+                </div>
+                <div class="input-group" style="flex: 1;">
+                    <label>Age *</label>
+                    <input type="number" placeholder="25" required>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>Email Address *</label>
+                <input type="email" placeholder="name@email.com" required>
+            </div>
+
+            <div class="input-group">
+                <label>Gender *</label>
+                <select required>
+                    <option value="">Select Gender</option>
+                    <option>Male</option>
+                    <option>Female</option>
+                    <option>Prefer not to say</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label>City / Location *</label>
+                <input type="text" placeholder="Your City" required>
+            </div>
+
+            <!-- SECTION 2 -->
+            <div class="section-title">📋 Section 2: Health Information</div>
+            <p style="font-size: 11px; color: #888; margin-top: -15px;">This helps us design a safe plan for you.</p>
+            
+            <label>Medical Conditions (Select all that apply) *</label>
+            <div class="checkbox-group">
+                <label class="opt-card"><input type="checkbox"> High Blood Pressure</label>
+                <label class="opt-card"><input type="checkbox"> Diabetes</label>
+                <label class="opt-card"><input type="checkbox"> Back Pain</label>
+                <label class="opt-card"><input type="checkbox"> Thyroid</label>
+                <label class="opt-card"><input type="checkbox"> PCOD / Hormonal</label>
+                <label class="opt-card"><input type="checkbox"> Anxiety / Stress</label>
+                <label class="opt-card"><input type="checkbox"> None</label>
+            </div>
+
+            <div class="input-group" style="margin-top: 20px;">
+                <label>Recent Surgery (Last 12 months)? *</label>
+                <div class="radio-group">
+                    <label class="opt-card"><input type="radio" name="surgery" value="yes" onclick="toggleSurgery(true)"> Yes</label>
+                    <label class="opt-card"><input type="radio" name="surgery" value="no" onclick="toggleSurgery(false)" checked> No</label>
+                </div>
+            </div>
+
+            <div id="surgery-details" class="input-group">
+                <label>What surgery and when?</label>
+                <textarea rows="2" placeholder="Please describe..."></textarea>
+            </div>
+
+            <div class="input-group">
+                <label>Are you currently pregnant?</label>
+                <select>
+                    <option>No</option>
+                    <option>Yes</option>
+                    <option>Not Applicable</option>
+                </select>
+            </div>
+
+            <!-- SECTION 3 -->
+            <div class="section-title">📋 Section 3: Class Preferences</div>
+            
+            <label>Interested In *</label>
+            <div class="checkbox-group">
+                <label class="opt-card"><input type="checkbox"> Weight Loss</label>
+                <label class="opt-card"><input type="checkbox"> Therapeutic</label>
+                <label class="opt-card"><input type="checkbox"> Beginners</label>
+                <label class="opt-card"><input type="checkbox"> Advanced</label>
+                <label class="opt-card"><input type="checkbox"> Meditation</label>
+                <label class="opt-card"><input type="checkbox"> Personal Training</label>
+            </div>
+
+            <div class="input-group" style="margin-top:20px;">
+                <label>Preferred Mode *</label>
+                <select required>
+                    <option>Online</option>
+                    <option>Offline (Studio)</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label>Preferred Batch Time *</label>
+                <select required>
+                    <option>6:15 AM – 7:15 AM</option>
+                    <option>7:15 AM – 8:15 AM</option>
+                    <option>Evening Batch</option>
+                </select>
+            </div>
+
+            <!-- SECTION 4 -->
+            <div class="section-title">📋 Section 4: Payment & Agreement</div>
+            
+            <div class="input-group">
+                <label>Select Your Plan *</label>
+                <select required>
+                    <option>1 Month Plan</option>
+                    <option>3 Month Plan</option>
+                    <option>Personal Training Plan</option>
+                    <option>Trial Class</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label style="display: flex; align-items: flex-start; gap: 10px; font-weight: 400;">
+                    <input type="checkbox" required style="margin-top: 5px;">
+                    <span>I confirm that I have provided accurate health information and understand that yoga is a self-responsibility practice.</span>
+                </label>
+            </div>
+
+            <button type="submit" class="submit-btn">Complete Registration</button>
+        </form>
+    </div>
+
+    <div id="success-state" class="success-msg">
+        <h2 style="color: var(--primary);">✨ Namaste</h2>
+        <p>Thanks for submitting! We will contact you soon.</p>
+        <p><b>Stay Tuned. Stay Happy.</b></p>
+    </div>
+</div>
+
+<script>
+    // Entry Animation
+    window.onload = () => {
+        gsap.to(".form-container", { opacity: 1, y: 0, duration: 1, ease: "power4.out" });
+    };
+
+    function toggleSurgery(show) {
+        const div = document.getElementById('surgery-details');
+        div.style.display = show ? 'block' : 'none';
+    }
+
+    document.getElementById('yogaForm').onsubmit = (e) => {
+        e.preventDefault();
+        gsap.to("#registration-form", { opacity: 0, duration: 0.5, onComplete: () => {
+            document.getElementById('registration-form').style.display = 'none';
+            document.getElementById('success-state').style.display = 'block';
+            gsap.from("#success-state", { opacity: 0, y: 20, duration: 0.5 });
+        }});
+    };
+</script>
+
+</body>
+</html>
