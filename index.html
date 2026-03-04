@@ -333,6 +333,7 @@
             </div>
 
             <button type="submit" class="submit-btn">Complete Registration</button>
+            
         </form>
     </div>
 
@@ -343,6 +344,7 @@
 
     <a href="https://vishwanathyoga.netlify.app/" 
        class="submit-btn" 
+       target="_blank"
        style="display:inline-block; text-decoration:none; text-align:center; margin-top:20px;">
        Back to our site
     </a>
@@ -358,6 +360,24 @@
         const div = document.getElementById('surgery-details');
         div.style.display = show ? 'block' : 'none';
     }
+    
+    // Handle form submission
+    document.getElementById('yogaForm').addEventListener('submit', function(e) {
+        // Let Netlify handle the form submission, but show success message first
+        // The form will submit normally to Netlify
+        
+        // Show success message and hide form
+        setTimeout(function() {
+            document.getElementById('registration-form').style.display = 'none';
+            document.getElementById('success-state').style.display = 'block';
+            
+            // Animate success message
+            gsap.fromTo("#success-state", 
+                { opacity: 0, y: 20 }, 
+                { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }
+            );
+        }, 500); // Small delay to allow form data to be sent
+    });
 </script>
 
 <script>
